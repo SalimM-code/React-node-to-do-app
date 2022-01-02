@@ -1,5 +1,5 @@
-INSERT INTO todos(name, completed)
+INSERT INTO todos(name, user_id)
 VALUES
-('clean the house', false),
-('Read a book', false),
-('Call my sister', false)
+('clean the house', 1),
+('Read a book', 1),
+('Call my sister', 1)
