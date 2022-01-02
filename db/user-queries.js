@@ -1,5 +1,13 @@
 const db = require("./db");
 
+const getAllUSers = () => {
+  return db.query(`SELECT * FROM users`);
+};
+
+const getUserByEmail = (email) => {
+  return db.query(`SELECT * FROM users WHERE email=$1`, [`${email}`]);
+};
+
 const addUser = (user) => {
   return db
     .query(
@@ -16,4 +24,6 @@ const addUser = (user) => {
 
 module.exports = {
   addUser,
+  getUserByEmail,
+  getAllUSers
 };
