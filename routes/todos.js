@@ -2,6 +2,8 @@ const express = require("express");
 const router = express.Router();
 const todoQueries = require("../db/list-queries");
 
+// /api/todo
+
 router.get("/todos", (req, res) => {
   const id = req.session.user_id;
   console.log("id", id);

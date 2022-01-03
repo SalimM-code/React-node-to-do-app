@@ -10,7 +10,7 @@ router.get("/", (req, res) => {
     .then((response) => {
       console.log(response.rows[0]);
       const users = response.rows;
-      res.json({ users });
+      res.send({ users });
     })
     .catch((err) => {
       res.status(500).json({ error: err.message });
@@ -18,9 +18,9 @@ router.get("/", (req, res) => {
 });
 
 router.post("/login", (req, res) => {
-  const user = req.body;
+  const email = req.body.email
 
-  userQueries.getUserByEmail(user.email).then((response) => {
+  userQueries.getUserByEmail(email).then((response) => {
     if (!response.rows[0]) {
       return res
         .status(404)
