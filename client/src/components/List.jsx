@@ -6,6 +6,7 @@ import FormControlLabel  from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 import classnames from "classnames"
 import { Container } from "./styles/list.styled";
+import CreateTodo from "./CreateTodo";
 
 
 const List = () => {
@@ -33,29 +34,32 @@ const List = () => {
   return ( 
     <Container className="container">
       <div className="wrapper">
+
         <div className="logo">
           <h2>TODO</h2>
           <FiMoon className="mode-logo"/>
         </div>
-        <div className="input main-body">
-          <Checkbox size="small" />
-          <input type="text" name="" id="" />
-        </div>
-        {data.map((todo) => (
-          <div className="main-body" key={todo.id}>
-          <Checkbox onChange={handleChange} size="small"/>
-          <p>{todo.name}</p>
-          <FiX className="remove" />
+
+       <CreateTodo />
+
+
+        <div className="list-display">
+          {data.map((todo) => (
+            <div className="main-body" key={todo.id}>
+            <Checkbox onChange={handleChange} size="small"  checkedIcon={<FiCheck />} sx={{ borderRadius: '50%'}}/>
+            <p>{todo.name}</p>
+            <FiX className="remove" />
+            </div>
+          ))}
+          <div className="lists-detail">
+            <p>{data.length} items left</p>
+            <div className="detail-mid">
+              <span>All</span>
+              <span>Active</span>
+              <span>Completed</span>
+            </div>
+            <span className="detail-end">Clear Completed</span>
           </div>
-        ))}
-        <div className="lists-detail">
-          <p>{data.length} items left</p>
-          <div className="detail-mid">
-            <span>All</span>
-            <span>Active</span>
-            <span>Completed</span>
-          </div>
-          <span className="detail-end">Clear Completed</span>
         </div>
 
       </div>
