@@ -47,10 +47,20 @@ export const Container = styled.div`
   }
 
   .input {
+    margin-bottom: 1.2em;
+  }
+  input {
     outline: none;
+    border: none;
+    background: transparent;
+    font-size: 13px;
   }
 
   span {
     cursor: pointer;
+  }
+
+  .list-display {
+    border: 1px solid black;
   }
 `;
