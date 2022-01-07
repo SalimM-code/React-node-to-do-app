@@ -1,13 +1,14 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  background-color: #24273d;
+  background-color: #ffffff;
   border-radius: 5px;
-  padding: 0px 20px;
+  /* padding: 0px 20px; */
   display: flex;
   align-items: center;
-  margin-top: 40px;
-  box-shadow: 0px 35px 50px -15px rgba(0, 0, 0, 0.5);
+  margin-top: 20px;
+  margin-bottom: 20px;
+  /* box-shadow: 0px 35px 50px -15px rgba(0, 0, 0, 0.5); */
 
   .newTodo {
     width: 100%;
