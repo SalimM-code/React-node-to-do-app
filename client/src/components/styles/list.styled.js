@@ -27,6 +27,7 @@ export const Container = styled.div`
     align-items: center;
     border: 1px solid pink;
     padding: 0.5em 1em;
+    overflow: scroll;
     /* justify-content: space-between; */
   }
   .remove {
@@ -62,5 +63,7 @@ export const Container = styled.div`
 
   .list-display {
     border: 1px solid black;
+    max-height: 300px;
+    /* overflow: scroll; */
   }
 `;

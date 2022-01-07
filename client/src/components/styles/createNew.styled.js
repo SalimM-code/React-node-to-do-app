@@ -23,27 +23,4 @@ export const Container = styled.div`
     caret-color: #3a7cfd;
     color: #494c6b;
   }
-
-  .checkmark {
-    border-radius: 100%;
-    height: 18px;
-    width: 18px;
-    background-color: #24273d;
-  }
-
-  .checkmarkBorder {
-    border-radius: 100%;
-    height: 20px;
-    width: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #e3e4f1;
-  }
-
-  .checkmarkButton {
-    & hover {
-      
-    }
-  }
 `;
