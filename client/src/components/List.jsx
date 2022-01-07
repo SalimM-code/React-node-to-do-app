@@ -40,7 +40,7 @@ const List = () => {
           <FiMoon className="mode-logo"/>
         </div>
 
-       <CreateTodo />
+      <CreateTodo data={data} setData={setData} />
 
 
         <div className="list-display">
