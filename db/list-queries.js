@@ -5,7 +5,7 @@ const addTodo = (todo) => {
     .query(
       `INSERT INTO todos(name, user_id)
         VALUES($1, $2) RETURNING *;`,
-      [`${todo.name}`, `${id}`]
+      [`${todo.name}`, `${todo.id}`]
     )
     .then((response) => {
       if (response.rows.length) {

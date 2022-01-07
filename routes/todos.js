@@ -22,18 +22,23 @@ router.get("/completed", (req, res) => {
   todoQueries.getCompleted(id, completed).then((response) => {
     const completedList = response;
     res.send({ completedList: completedList });
-    console.log("2", response);
   });
 });
 
 router.post("/new", (req, res) => {
   const id = req.session.user_id;
+  console.log("2", id);
   const name = req.body.name;
   const todo = {
     name,
+    id,
   };
 
   todoQueries.addTodo(todo, id).then((response) => {
+    const data = response;
+    // res.send({ data: data });
+  });
+  todoQueries.getTodo(todo.id).then((response) => {
     const data = response;
     res.send({ data: data });
   });
