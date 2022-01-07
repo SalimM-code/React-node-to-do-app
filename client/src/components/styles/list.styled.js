@@ -11,6 +11,7 @@ export const Container = styled.div`
 
   .wrapper {
     width: 30%;
+    /* margin-bottom: 9.3em; */
   }
 
   .mode-logo {
@@ -25,7 +26,7 @@ export const Container = styled.div`
   .main-body {
     display: flex;
     align-items: center;
-    border: 1px solid pink;
+    border-bottom: 1px solid pink;
     padding: 0.5em 1em;
     overflow: scroll;
     /* justify-content: space-between; */
@@ -62,8 +63,15 @@ export const Container = styled.div`
   }
 
   .list-display {
-    border: 1px solid black;
-    max-height: 300px;
+    /* border: 1px solid black; */
+    max-height: 325px;
+    border-bottom: pink solid 1px;
     /* overflow: scroll; */
+  }
+
+  .body {
+    margin-top: 1em;
+    border: 1px solid black;
+    background-color: yellow;
   }
 `;
