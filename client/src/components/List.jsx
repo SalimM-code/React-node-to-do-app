@@ -23,12 +23,23 @@ const List = () => {
     })
     .then(res => {
       setData(res.data.todoList)
-      console.log(res)
+
     })
   }, [id])
 
   const handleChange = (e) => {
     setChecked(true);
+  }
+
+  const handleDelete = (id) => {
+    axios.delete('api/todo/delete', {
+      headers: {
+        id: id
+      }
+    })
+    .then(res => {
+      console.log(res);
+    })
   }
 
 
@@ -44,20 +55,28 @@ const List = () => {
       <CreateTodo data={data} setData={setData} />
 
       <div className="body">
-
+      {data !== undefined ? 
+      <>
         <div className="list-display">
           {data.map((todo) => (
             <div className="main-body" key={todo.id}>
             <Checkbox onChange={handleChange} size="small"  checkedIcon={<FiCheck />} sx={{ borderRadius: '50%'}}/>
             <p>{todo.name}</p>
-            <FiX className="remove" />
+            <FiX className="remove" onClick={() => handleDelete(todo.id)}/>
             </div>
           ))}
         </div>
-      
+
       <BottomNav data={data} setData={setData} />
+      </>
+        :
+    
+    <BottomNav data={data} setData={setData} />
+
+    }
       
       </div>
+      
 
       </div>
 
