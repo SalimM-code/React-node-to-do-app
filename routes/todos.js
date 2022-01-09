@@ -1,3 +1,4 @@
+const { response } = require("express");
 const express = require("express");
 const router = express.Router();
 const todoQueries = require("../db/list-queries");
@@ -6,12 +7,10 @@ const todoQueries = require("../db/list-queries");
 
 router.get("/todos", (req, res) => {
   const id = req.session.user_id;
-  console.log("id", id);
 
   todoQueries.getTodo(id).then((response) => {
     const todoList = response;
     res.send({ todoList: todoList });
-    console.log("1", response);
   });
 });
 
@@ -27,7 +26,7 @@ router.get("/completed", (req, res) => {
 
 router.post("/new", (req, res) => {
   const id = req.session.user_id;
-  console.log("2", id);
+
   const name = req.body.name;
   const todo = {
     name,
@@ -41,6 +40,14 @@ router.post("/new", (req, res) => {
   todoQueries.getTodo(todo.id).then((response) => {
     const data = response;
     res.send({ data: data });
+  });
+});
+
+router.delete("/delete", (req, res) => {
+  // todoQueries.deleteTodo()
+  const id = req.headers.id;
+  todoQueries.deleteTodo(id).then((response) => {
+    res.send("todo delete successfully");
   });
 });
 

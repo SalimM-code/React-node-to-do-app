@@ -8,6 +8,7 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: hsl(236, 33%, 92%);
 
   .wrapper {
     width: 30%;
@@ -26,9 +27,20 @@ export const Container = styled.div`
   .main-body {
     display: flex;
     align-items: center;
-    border-bottom: 1px solid pink;
+    border-bottom: 1px solid hsl(233, 11%, 84%);
     padding: 0.5em 1em;
     overflow: scroll;
+
+    .remove {
+      display: none;
+    }
+
+    &:hover {
+      cursor: pointer;
+      .remove {
+        display: block;
+      }
+    }
     /* justify-content: space-between; */
   }
   .remove {
@@ -38,7 +50,7 @@ export const Container = styled.div`
   .lists-detail {
     display: flex;
     justify-content: space-between;
-    padding: 0.5em 1em;
+    padding: 1em 1em;
     font-size: 13px;
 
     .detail-mid {
@@ -60,18 +72,22 @@ export const Container = styled.div`
 
   span {
     cursor: pointer;
+    &:hover {
+      color: hsl(220, 98%, 61%);
+    }
   }
 
   .list-display {
     /* border: 1px solid black; */
     max-height: 325px;
-    border-bottom: pink solid 1px;
+    border-bottom: hsl(233, 11%, 84%) solid 1px;
+
     /* overflow: scroll; */
   }
 
   .body {
     margin-top: 1em;
-    border: 1px solid black;
-    background-color: yellow;
+    /* border: 1px solid black; */
+    background-color: hsl(0, 0%, 98%);
   }
 `;

@@ -8,7 +8,6 @@ router.get("/", (req, res) => {
   userQueries
     .getAllUSers()
     .then((response) => {
-      console.log(response.rows[0]);
       const users = response.rows;
       res.send({ users });
     })
@@ -18,7 +17,7 @@ router.get("/", (req, res) => {
 });
 
 router.post("/login", (req, res) => {
-  const email = req.body.email
+  const email = req.body.email;
 
   userQueries.getUserByEmail(email).then((response) => {
     if (!response.rows[0]) {
@@ -49,7 +48,6 @@ router.post("/register", (req, res) => {
   userQueries
     .addUser(user)
     .then((response) => {
-      console.log(response);
       userQueries.getUserByEmail(user.email).then((response) => {
         req.session.user_id = response.rows[0].id;
         const userFromDb = response.rows[0];
@@ -57,7 +55,6 @@ router.post("/register", (req, res) => {
       });
     })
     .catch((error) => {
-      console.log("failed to add user", error);
       res.status(400).send("can not add user");
     });
 });

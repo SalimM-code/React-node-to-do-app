@@ -16,7 +16,7 @@ const addTodo = (todo) => {
 
 const getTodo = (id) => {
   return db
-    .query(`SELECT * FROM todos WHERE user_id=$1;`, [`${id}`])
+    .query(`SELECT * FROM todos WHERE user_id=$1 ORDER BY id DESC;`, [`${id}`])
     .then((data) => {
       if (data.rows.length) {
         return data.rows;
@@ -28,19 +28,25 @@ const getTodo = (id) => {
 };
 
 const getCompleted = (id, completed) => {
-  return db.query(`SELECT * FROM todos WHERE user_id=$1 AND completed=$2;`, [
-    `${id}`,
-    `${completed}`,
-  ])
-  .then(data => {
-    if( data.rows.length) {
-      return data.rows
-    }
-  })
+  return db
+    .query(`SELECT * FROM todos WHERE user_id=$1 AND completed=$2;`, [
+      `${id}`,
+      `${completed}`,
+    ])
+    .then((data) => {
+      if (data.rows.length) {
+        return data.rows;
+      }
+    });
+};
+
+const deleteTodo = (id) => {
+  return db.query(`DELETE FROM todos WHERE id=$1;`, [`${id}`]);
 };
 
 module.exports = {
   addTodo,
   getTodo,
   getCompleted,
+  deleteTodo,
 };
