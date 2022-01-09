@@ -1,6 +1,8 @@
 const BottomNav = (prop) => {
   const { data, setData } = prop
   return ( 
+    <>
+    {data ? 
     <div className="lists-detail">
     <p>{data.length} items left</p>
     <div className="detail-mid">
@@ -10,6 +12,12 @@ const BottomNav = (prop) => {
     </div>
     <span className="detail-end">Clear Completed</span>
   </div>
+    :
+    <div className="lists-detail">
+      <p>Add todos to see them</p>
+    </div>
+  }
+    </>
   );
 }
 
