@@ -17,7 +17,7 @@ const List = () => {
 
   // const myClasses = classnames('')
 
-  useEffect(() => {
+  const getAll = () => {
     axios.get('api/todo/todos', {
       id
     })
@@ -25,7 +25,23 @@ const List = () => {
       setData(res.data.todoList)
 
     })
-  }, [id])
+  }
+
+  useEffect(() => {
+    getAll()
+  }, []);
+
+  // useEffect(() => {
+  //   axios.get('api/todo/todos', {
+  //     id
+  //   })
+  //   .then(res => {
+  //     setData(res.data.todoList)
+
+  //   })
+  // }, [id])
+
+  
 
   const handleChange = (e) => {
     setChecked(true);
@@ -38,6 +54,7 @@ const List = () => {
       }
     })
     .then(res => {
+      getAll()
       console.log(res);
     })
   }
